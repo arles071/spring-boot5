@@ -14,6 +14,7 @@ import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 
@@ -38,14 +39,15 @@ public class Cliente implements Serializable{
 	@Column(nullable=false, unique=true)
 	private String email;
 	
+	@NotNull(message = "no puede estar vacio")
 	@Column(name="create_at")
 	@Temporal(TemporalType.DATE)
 	private Date createAt;
 	
-	@PrePersist
-	public void prePersist() {
+	//@PrePersist
+	/*public void prePersist() {
 		this.createAt = new Date();
-	}
+	}*/
 	
 	
 	public Long getId() {
