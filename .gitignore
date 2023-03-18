@@ -34,3 +34,4 @@ build/
 
 ### Angular ###
 /angular
+uploads/*
